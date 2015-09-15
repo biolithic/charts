@@ -1,0 +1,7 @@
+name = Charts
+description = A charting API for Backdrop CMS that provides chart elements and integration with Views.
+package = Charts
+backdrop = 1.x
+version = 1.x-1.1
+type = module
+configure = admin/config/content/charts

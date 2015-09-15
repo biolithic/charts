@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * Install and update functions for the Charts module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function charts_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  if ($phase == 'runtime' && !charts_info()) {
+    $requirements['charts'] = array(
+      'title' => $t('Charts'),
+      'value' => $t('No Charts provider installed'),
+      'severity' => REQUIREMENT_ERROR,
+      'description' => $t('Charts core module only provides a a common set of functions. You must install a Charts provider module to create charts.'),
+    );
+  }
+  return $requirements;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function charts_uninstall() {
+}
+
+/**
+ * Move book settings from variables to config.
+ */
+function charts_update_1000() {
+  // Migrate variables to config.
+  $config = config('charts.settings');
+  $config->set('charts', update_variable_get('charts'));
+  $config->save();
+
+  // Delete variables.
+  update_variable_del('charts');
+}

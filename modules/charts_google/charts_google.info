@@ -1,0 +1,7 @@
+name = Google Charts
+description = Charts module integration with Google Charts.
+package = Charts
+backdrop = 1.x
+version = 1.x-1.1
+type = module
+dependencies[]  = charts

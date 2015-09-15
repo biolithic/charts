@@ -1,0 +1,8 @@
+name = Highcharts
+description = Charts module integration with Highcharts library.
+package = Charts
+backdrop = 1.x
+version = 1.x-1.1
+type = module
+dependencies[] = libraries
+dependencies[]  = charts
